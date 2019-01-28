@@ -30,7 +30,7 @@
     </div>
 </div>
 
-@{ if (Model.Recommendations != null)
+@{ if (Model.Recommendations != null && Model.Recommendations.Count > 0)
 {
     <div class="container text-center my-5">
         <h2>Customers also considered</h2>

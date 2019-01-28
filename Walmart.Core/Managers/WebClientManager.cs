@@ -27,7 +27,7 @@ namespace Walmart.Core.Managers
             try
             {
                 var httpResponseMessage = await _httpClient.GetAsync(
-                    $"{requestUriEx}&format={_webClientManagerOptions.Format}&apiKey={_webClientManagerOptions.ApiKey}11");
+                    $"{requestUriEx}&format={_webClientManagerOptions.Format}&apiKey={_webClientManagerOptions.ApiKey}");
 
                 if (!httpResponseMessage.IsSuccessStatusCode)
                 {

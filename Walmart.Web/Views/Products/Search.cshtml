@@ -1,0 +1,20 @@
+﻿@model SearchQueryViewModel;
+@{ ViewData["Title"] = "Products"; }
+
+<div class="row my-lg-5">
+    @{if (Model.Products != null && Model.Products.Count > 0)
+        {
+            foreach (var product in Model.Products)
+            {
+                <div class="col-lg-4">
+
+                    <a href="details/@product.ItemId"><img src="@product.MediumImage" /></a>
+                    <h5>@product.Name</h5>
+                    <label>@product.SalePrice.ToString("c")</label>
+                    @*@Html.Raw(System.Net.WebUtility.HtmlDecode(product.LongDescription))*@
+                </div>
+            }
+        }
+    }
+
+</div>

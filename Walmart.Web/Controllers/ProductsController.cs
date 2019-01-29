@@ -20,10 +20,8 @@ namespace Walmart.Web.Controllers
             _logger = loggerFactory?.CreateLogger<ProductsController>();
         }
 
-        public IActionResult Search()
-        {
-            return View(new SearchQueryViewModel());
-        }
+        [HttpGet]
+        public IActionResult Search() => View(new SearchQueryViewModel());
 
         [HttpGet]
         public async Task<IActionResult> Details(int id)
@@ -85,6 +83,7 @@ namespace Walmart.Web.Controllers
             {
                 model.NumItems = searchQuery.NumItems;
                 model.Query = searchQuery.Query;
+                model.TotalResults = searchQuery.TotalResults;
 
                 if (searchQuery.Items != null && searchQuery.Items.Count > 0)
                 {

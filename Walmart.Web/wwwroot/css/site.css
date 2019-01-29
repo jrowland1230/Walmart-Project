@@ -124,3 +124,8 @@ img {
 li {
     list-style-type: none;
 }
+
+.product-link {
+    text-decoration: none !important;
+    color: #575555;
+}

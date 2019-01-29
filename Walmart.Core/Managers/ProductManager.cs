@@ -35,6 +35,7 @@ namespace Walmart.Core.Managers
         {
             if (id <= 0) { return null; }
             return Deserialize<IEnumerable<Product>>(await _webClientManager.GetAsync($"v1/nbp?itemId={id}"));
+            //if no reommendations are found it returns a different Json structure. //Error//
         }
 
         private T Deserialize<T>(string value)
@@ -42,7 +43,8 @@ namespace Walmart.Core.Managers
             try
             {
                 if (string.IsNullOrEmpty(value)) { return default(T); }
-                return JsonConvert.DeserializeObject<T>(value);
+                return JsonConvert.DeserializeObject<T>(value, new JsonSerializerSettings()
+                    { NullValueHandling = NullValueHandling.Ignore });
             }
             catch (Exception exception)
             {

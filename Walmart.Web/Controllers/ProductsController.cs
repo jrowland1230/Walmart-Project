@@ -3,7 +3,6 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
 using Walmart.Core.Managers;
-using Walmart.Core.Models;
 using Walmart.Web.Models.ProductsViewModels;
 
 namespace Walmart.Web.Controllers

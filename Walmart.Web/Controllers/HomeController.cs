@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using KestrelWeb.Models;
 using Microsoft.AspNetCore.Mvc;
-using KestrelWeb.Models;
+using System.Diagnostics;
 
 namespace Walmart.Web.Controllers
 {

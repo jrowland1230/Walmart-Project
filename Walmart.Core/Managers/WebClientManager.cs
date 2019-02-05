@@ -19,7 +19,7 @@ namespace Walmart.Core.Managers
             , ILoggerFactory loggerFactory)
         {
             _webClientManagerOptions = optionsAccessor.Value ?? throw new ArgumentNullException(nameof(optionsAccessor));
-            _httpClient = httpClient ?? throw new ArgumentNullException(nameof(optionsAccessor));
+            _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
             _logger = loggerFactory?.CreateLogger<WebClientManager>();
             _httpClient.BaseAddress = new Uri(_webClientManagerOptions.BaseUri);
         }

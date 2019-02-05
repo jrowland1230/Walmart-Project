@@ -10,14 +10,16 @@ namespace Walmart.Core.Managers
 {
     public class WebClientManager : IWebClientManager
     {
-        private readonly HttpClient _httpClient = new HttpClient();
+        private readonly HttpClient _httpClient;
         private readonly WebClientManagerOptions _webClientManagerOptions;
         private readonly ILogger _logger;
 
         public WebClientManager(IOptions<WebClientManagerOptions> optionsAccessor
-             , ILoggerFactory loggerFactory)
+            , HttpClient httpClient
+            , ILoggerFactory loggerFactory)
         {
             _webClientManagerOptions = optionsAccessor.Value ?? throw new ArgumentNullException(nameof(optionsAccessor));
+            _httpClient = httpClient ?? throw new ArgumentNullException(nameof(optionsAccessor));
             _logger = loggerFactory?.CreateLogger<WebClientManager>();
             _httpClient.BaseAddress = new Uri(_webClientManagerOptions.BaseUri);
         }
